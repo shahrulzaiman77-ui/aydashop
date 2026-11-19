@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayda Shop | Marketing Executive — Beauty & Cosmetics</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN for crisp vector icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & THEME SYSTEM (2026 LUXURY COSMETIC PALETTE)
+           ========================================================================== */
+        :root {
+            --bg-primary: #FAF7F5;
+            --bg-secondary: #FFFFFF;
+            --bg-accent-soft: #F3ECE7;
+            --text-primary: #161413;
+            --text-secondary: #5C5550;
+            --text-muted: #8E857E;
+            --brand-teal: #1B5459;      /* Extracted from Ayda Shop Logo */
+            --brand-teal-dark: #123B3F;
+            --brand-gold: #C69B53;      /* Extracted from Ayda Shop Logo */
+            --brand-gold-light: #E8D2A6;
+            --brand-blush: #E8A598;     /* Extracted from Ayda Shop Logo */
+            --border-color: rgba(22, 20, 19, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.78);
+            --shadow-soft: 0 12px 32px -4px rgba(27, 84, 89, 0.08);
+            --shadow-card: 0 8px 24px -6px rgba(22, 20, 19, 0.06);
+            --radius-xl: 24px;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #EAE4DF;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Mobile-First App Container simulating a sleek vertical landing card on desktop */
+        .app-shell {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--bg-primary);
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            padding-bottom: 96px; /* Space for sticky bottom CTA */
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.01em;
+        }
+
+        /* ==========================================================================
+           2. TOP FLOATING NAVIGATION & PROGRESS BAR
+           ========================================================================== */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .top-brand img {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--brand-gold);
+        }
+
+        .top-brand span {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--brand-teal);
+            letter-spacing: 0.04em;
+        }
+
+        .top-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover, .icon-btn:active {
+            background: var(--brand-teal);
+            color: #FFFFFF;
+            transform: scale(1.06);
+        }
+
+        .scroll-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2.5px;
+            background: linear-gradient(90deg, var(--brand-teal), var(--brand-gold));
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ==========================================================================
+           3. HERO PROFILE SECTION (GAMBAR PERTAMA + IDENTITI)
+           ========================================================================== */
+        .hero-section {
+            position: relative;
+            padding: 24px 20px 32px;
+            background: radial-gradient(circle at top right, rgba(198, 155, 83, 0.16), transparent 60%),
+                        radial-gradient(circle at bottom left, rgba(27, 84, 89, 0.08), transparent 60%);
+        }
+
+        .hero-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: 24px 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(27, 84, 89, 0.08);
+            color: var(--brand-teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 14px;
+            border-radius: 99px;
+            margin-bottom: 18px;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: #10B981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulseGreen 2s infinite;
+        }
+
+        @keyframes pulseGreen {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Primary Brand & Owner Avatar Showcase (Gambar Pertama: 466.jpg) */
+        .avatar-wrapper {
+            position: relative;
+            width: 146px;
+            height: 146px;
+            margin: 0 auto 18px;
+        }
+
+        .avatar-ring {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: conic-gradient(from 45deg, var(--brand-gold), var(--brand-teal), var(--brand-blush), var(--brand-gold));
+            animation: spinSlow 14s linear infinite;
+            opacity: 0.85;
+        }
+
+        @keyframes spinSlow {
+            to { transform: rotate(360deg); }
+        }
+
+        .avatar-img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-secondary);
+            background: #FAF6F0;
+            z-index: 2;
+        }
+
+        .verified-seal {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            z-index: 3;
+            background: var(--brand-teal);
+            color: #FFF;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--bg-secondary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .hero-name {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .hero-role {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--brand-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+        }
+
+        .hero-bio {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            margin-bottom: 22px;
+            padding: 0 6px;
+        }
+
+        /* Primary CTA Grid */
+        .hero-cta-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .btn-primary {
+            grid-column: span 2;
+            background: linear-gradient(135deg, var(--brand-teal), var(--brand-teal-dark));
+            color: #FFFFFF;
+            border: none;
+            padding: 15px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 20px -5px rgba(27, 84, 89, 0.35);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover, .btn-primary:active {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px -5px rgba(27, 84, 89, 0.45);
+        }
+
+        .btn-secondary {
+            background: var(--bg-accent-soft);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover, .btn-secondary:active {
+            background: var(--brand-gold);
+            color: #FFFFFF;
+            border-color: var(--brand-gold);
+        }
+
+        /* Quick Contact Pills */
+        .quick-contacts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .q-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 4px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .q-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--bg-primary);
+            color: var(--brand-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .q-item:hover .q-icon {
+            background: var(--brand-teal);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           4. SECTION COMMON STYLES & REVEAL ANIMATION
+           ========================================================================== */
+        .section {
+            padding: 28px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 20px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--brand-gold);
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.25;
+        }
+
+        .section-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           5. ANIMATED CREDIBILITY STATISTICS
+           ========================================================================== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 16px 10px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--brand-teal);
+            display: block;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            line-height: 1.3;
+        }
+
+        /* ==========================================================================
+           6. EXECUTIVE STORY & BRAND ATMOSPHERE
+           ========================================================================== */
+        .story-card {
+            background: linear-gradient(145deg, var(--brand-teal), var(--brand-teal-dark));
+            color: #FFFFFF;
+            border-radius: var(--radius-xl);
+            padding: 24px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-card::after {
+            content: "";
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(198, 155, 83, 0.35), transparent 70%);
+        }
+
+        .story-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.22rem;
+            font-style: italic;
+            line-height: 1.45;
+            margin-bottom: 14px;
+            color: #FAF7F5;
+        }
+
+        .story-text {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.84);
+            margin-bottom: 18px;
+        }
+
+        .story-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pill-tag {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--brand-gold-light);
+            font-size: 0.74rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 99px;
+        }
+
+        /* ==========================================================================
+           7. SIGNATURE PRODUCTS SHOWCASE (FILTERABLE + POPUP MODAL)
+           ========================================================================== */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            scrollbar-width: none;
+        }
+
+        .filter-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            white-space: nowrap;
+            padding: 8px 16px;
+            border-radius: 99px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            background: var(--brand-teal);
+            color: #FFFFFF;
+            border-color: var(--brand-teal);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .product-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-soft);
+            border-color: var(--brand-gold);
+        }
+
+        .product-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: #F4EFEA;
+            overflow: hidden;
+        }
+
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(22, 20, 19, 0.78);
+            backdrop-filter: blur(6px);
+            color: #FFFFFF;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 4px 9px;
+            border-radius: 6px;
+        }
+
+        .product-info {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-brand {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--brand-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .product-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 3px 0 8px;
+            line-height: 1.3;
+        }
+
+        .product-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--brand-teal);
+            padding-top: 8px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ==========================================================================
+           8. CURATED VISUAL GALLERY (UNCLUTTERED EDITORIAL MASONRY)
+           ========================================================================== */
+        .editorial-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-item.featured-wide {
+            grid-column: span 2;
+            aspect-ratio: 16 / 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            inset: auto 0 0 0;
+            padding: 24px 14px 12px;
+            background: linear-gradient(to top, rgba(22, 20, 19, 0.85), transparent);
+            color: #FFFFFF;
+        }
+
+        .gallery-caption h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .gallery-caption p {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ==========================================================================
+           9. SERVICES & VALUE OFFERED (MARKETING & BEAUTY CONSULTATION)
+           ========================================================================== */
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            border-color: var(--brand-teal);
+            transform: translateX(4px);
+        }
+
+        .service-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 12px;
+            background: rgba(27, 84, 89, 0.08);
+            color: var(--brand-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .service-content p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        /* ==========================================================================
+           10. SOCIAL PROOF & CUSTOMER TESTIMONIALS
+           ========================================================================== */
+        .testimonial-track {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 10px;
+            scrollbar-width: none;
+        }
+
+        .testimonial-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            min-width: 85%;
+            scroll-snap-align: start;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stars {
+            color: #F59E0B;
+            display: flex;
+            gap: 2px;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 0.86rem;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .reviewer-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--brand-teal);
+            color: #FFF;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reviewer-meta strong {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--text-primary);
+        }
+
+        .reviewer-meta span {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .social-banner {
+            margin-top: 16px;
+            background: var(--bg-accent-soft);
+            border-radius: var(--radius-lg);
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-banner-text strong {
+            display: block;
+            font-size: 0.86rem;
+            color: var(--text-primary);
+        }
+
+        .social-banner-text span {
+            font-size: 0.76rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================================================
+           11. FAQ ACCORDION
+           ========================================================================== */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .faq-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 15px 16px;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            cursor: pointer;
+            gap: 12px;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--brand-teal);
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 16px;
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding: 0 16px 16px;
+        }
+
+        /* ==========================================================================
+           12. FINAL CONVERSION CTA & DIRECT LEAD FORM (HUBUNGI FITRI / AYDA SHOP)
+           ========================================================================== */
+        .final-cta-card {
+            background: linear-gradient(160deg, #161413 0%, #24201E 100%);
+            color: #FFFFFF;
+            border-radius: var(--radius-xl);
+            padding: 28px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-card h2 {
+            font-size: 1.65rem;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+        }
+
+        .final-cta-card p {
+            font-size: 0.86rem;
+            color: rgba(255, 255, 255, 0.78);
+            margin-bottom: 20px;
+        }
+
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: left;
+            margin-bottom: 16px;
+        }
+
+        .lead-input, .lead-select {
+            width: 100%;
+            padding: 13px 14px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 0.88rem;
+            outline: none;
+        }
+
+        .lead-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .lead-select option {
+            background: #161413;
+            color: #FFFFFF;
+        }
+
+        .btn-gold {
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--radius-md);
+            border: none;
+            background: linear-gradient(135deg, var(--brand-gold), #B0833B);
+            color: #161413;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.06);
+        }
+
+        .contact-copy-box {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .copy-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+        }
+
+        .copy-trigger {
+            background: rgba(255, 255, 255, 0.14);
+            border: none;
+            color: var(--brand-gold-light);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           13. STICKY BOTTOM CONVERSION BAR
+           ========================================================================== */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border-color);
+            padding: 12px 16px;
+            display: flex;
+            gap: 10px;
+            z-index: 60;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .sticky-wa {
+            flex: 1;
+            background: #1B5459;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 16px rgba(27, 84, 89, 0.25);
+        }
+
+        .sticky-save {
+            background: var(--bg-accent-soft);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 14px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           14. PRODUCT POPUP MODAL & QR CODE MODAL & TOAST
+           ========================================================================== */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(22, 20, 19, 0.65);
+            backdrop-filter: blur(6px);
+            z-index: 100;
+            display: none;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .modal-backdrop.show {
+            display: flex;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @media (min-width: 520px) {
+            .modal-backdrop {
+                align-items: center;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-sheet {
+            width: 100%;
+            max-width: 440px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            animation: slideUp 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            position: relative;
+            height: 250px;
+            background: #F4EFEA;
+        }
+
+        .modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--brand-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .modal-title {
+            font-size: 1.35rem;
+            margin: 4px 0 10px;
+        }
+
+        .modal-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .modal-benefits {
+            list-style: none;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .modal-benefits li {
+            font-size: 0.83rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .modal-benefits li i {
+            color: var(--brand-teal);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 72px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: #161413;
+            color: #FFFFFF;
+            padding: 10px 18px;
+            border-radius: 99px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-shell">
+    <!-- ======================================================================
+         STICKY TOP BAR
+         ====================================================================== -->
+    <header class="top-bar">
+        <div class="top-brand">
+            <img src="466.jpg" alt="Ayda Shop Logo" onerror="this.src='https://placehold.co/100x100/1B5459/C69B53?text=AS'">
+            <span>AYDA SHOP</span>
+        </div>
+        <div class="top-actions">
+            <button class="icon-btn" id="openQrBtn" title="Kod QR Kad Digital" aria-label="Kod QR">
+                <i data-lucide="qr-code" size="18"></i>
+            </button>
+            <button class="icon-btn" id="shareCardBtn" title="Kongsi Kad Digital" aria-label="Kongsi">
+                <i data-lucide="share-2" size="18"></i>
+            </button>
+        </div>
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </header>
+
+    <!-- ======================================================================
+         HERO PROFILE SECTION (GAMBAR PERTAMA + IDENTITI MARKETING EXECUTIVE)
+         ====================================================================== -->
+    <section class="hero-section">
+        <div class="hero-card reveal active">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                <span>Available for Consultation & Order</span>
+            </div>
+
+            <!-- Gambar Pertama (466.jpg) sebagai Identiti Pemilik & Jenama -->
+            <div class="avatar-wrapper">
+                <div class="avatar-ring"></div>
+                <img src="466.jpg" alt="Ayda Shop - Marketing Executive" class="avatar-img" onerror="this.src='https://placehold.co/300x300/FAF6F0/1B5459?text=AYDA+SHOP'">
+                <div class="verified-seal" title="Verified Marketing Executive">
+                    <i data-lucide="badge-check" size="16"></i>
+                </div>
+            </div>
+
+            <h1 class="hero-name">Ayda Shop</h1>
+            <p class="hero-role">Marketing Executive • Ayda Shop</p>
+            <p class="hero-bio">
+                Membantu wanita tampil yakin dengan rangkaian penjagaan kulit & kosmetik tulen pilihan pakar. Dari konsultasi kulit peribadi hingga kolaborasi kempen kecantikan berimpak tinggi.
+            </p>
+
+            <!-- Primary Conversion CTAs -->
+            <div class="hero-cta-group">
+                <a href="https://wa.me/601174717796?text=Hai%20Ayda%20Shop!%20Saya%20tertarik%20untuk%20dapatkan%20konsultasi%20produk%20beauty%20%26%20cosmetics." target="_blank" rel="noopener" class="btn-primary">
+                    <i data-lucide="message-circle" size="20"></i>
+                    <span>WhatsApp Terus Sekarang</span>
+                </a>
+                <button class="btn-secondary" id="saveVcardBtn">
+                    <i data-lucide="user-plus" size="17"></i>
+                    <span>Save Contact</span>
+                </button>
+                <a href="#katalog-produk" class="btn-secondary">
+                    <i data-lucide="sparkles" size="17"></i>
+                    <span>Lihat Produk</span>
+                </a>
+            </div>
+
+            <!-- 4-Column Quick Action Bar -->
+            <div class="quick-contacts">
+                <a href="tel:+601174717796" class="q-item">
+                    <div class="q-icon"><i data-lucide="phone" size="18"></i></div>
+                    <span>Call</span>
+                </a>
+                <a href="mailto:aydajannah19@gmail.com" class="q-item">
+                    <div class="q-icon"><i data-lucide="mail" size="18"></i></div>
+                    <span>Email</span>
+                </a>
+                <button class="q-item" onclick="copyText('01174717796', 'Nombor telefon disalin!')">
+                    <div class="q-icon"><i data-lucide="copy" size="18"></i></div>
+                    <span>Salin No.</span>
+                </button>
+                <a href="#hubungi-fitri" class="q-item">
+                    <div class="q-icon"><i data-lucide="send" size="18"></i></div>
+                    <span>Pertanyaan</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         ANIMATED CREDIBILITY & ACHIEVEMENT STATISTICS
+         ====================================================================== -->
+    <section class="section reveal">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number" data-target="1500" data-suffix="+">0</span>
+                <span class="stat-label">Pelanggan Berpuas Hati</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="100" data-suffix="%">0</span>
+                <span class="stat-label">Produk Tulen & Diuji</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="4.9" data-decimal="true" data-suffix="★">0</span>
+                <span class="stat-label">Rating Kepuasan</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         EXECUTIVE INTRODUCTION & BRAND STORYTELLING
+         ====================================================================== -->
+    <section class="section reveal">
+        <div class="story-card">
+            <span class="section-tag" style="color: var(--brand-gold-light);">Profil Eksekutif</span>
+            <p class="story-quote">
+                “Kecantikan sebenar bermula apabila anda memahami keperluan kulit anda dengan formulasi yang tepat.”
+            </p>
+            <p class="story-text">
+                Sebagai Marketing Executive di <strong>Ayda Shop</strong>, saya komited menghubungkan pelanggan dengan jenama skincare & kosmetik terbaik seperti Glad2Glow, The Ordinary, Mary Kay, dan M.A.C — disertai bimbingan rutin harian yang jujur dan berkesan.
+            </p>
+            <div class="story-highlights">
+                <span class="pill-tag">Skincare Consultation</span>
+                <span class="pill-tag">100% Authentic Curated</span>
+                <span class="pill-tag">TikTok Beauty Trend</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         PRODUK UTAMA AYDA SHOP (INTERACTIVE FILTER & POPUP DETAIL)
+         ====================================================================== -->
+    <section class="section reveal" id="katalog-produk">
+        <div class="section-header">
+            <span class="section-tag">Koleksi Terlaris 2026</span>
+            <h2 class="section-title">Produk Utama Ayda Shop</h2>
+            <p class="section-subtitle">Klik mana-mana produk untuk melihat manfaat utama & tempahan pantas.</p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="filter-tabs" id="categoryTabs">
+            <button class="tab-btn active" data-filter="all">Semua (8)</button>
+            <button class="tab-btn" data-filter="moisturizer">Moisturizer</button>
+            <button class="tab-btn" data-filter="sunscreen">Sunscreen & Serum</button>
+            <button class="tab-btn" data-filter="cleanser">Cleanser & Lips</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGrid">
+            <!-- Injected dynamically via Vanilla JS for clean data management & popup binding -->
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         GALERI VISUAL & SUASANA PERNIAGAAN (EDITORIAL STORYTELLING)
+         ====================================================================== -->
+    <section class="section reveal">
+        <div class="section-header">
+            <span class="section-tag">Visual & Kurasi</span>
+            <h2 class="section-title">Rangkaian Kecantikan Pilihan</h2>
+            <p class="section-subtitle">Susunan produk estetik untuk rutin pagi hingga malam anda.</p>
+        </div>
+
+        <div class="editorial-gallery">
+            <div class="gallery-item featured-wide" onclick="openProductModal(6)">
+                <img src="664.jpg" alt="M.A.C Squirt Plumping Gloss Stick Collection" loading="lazy">
+                <div class="gallery-caption">
+                    <h4>M.A.C Squirt Plumping Gloss Stick</h4>
+                    <p>Koleksi rona ikonik untuk bibir lembap, berkilau & menawan.</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openProductModal(7)">
+                <img src="665.jpg" alt="The Ordinary The Age Support Set" loading="lazy">
+                <div class="gallery-caption">
+                    <h4>The Ordinary Age Support</h4>
+                    <p>Formulasi klinikal multi-peptida.</p>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openProductModal(5)">
+                <img src="661.jpg" alt="Mary Kay Sheer UV Defense Milk" loading="lazy">
+                <div class="gallery-caption">
+                    <h4>Mary Kay UV Defense SPF 50+</h4>
+                    <p>Perlindungan UV ringan harian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SERVIS & BANTUAN YANG DITAWARKAN
+         ====================================================================== -->
+    <section class="section reveal">
+        <div class="section-header">
+            <span class="section-tag">Bagaimana Saya Bantu Anda</span>
+            <h2 class="section-title">Servis & Kepakaran</h2>
+        </div>
+
+        <div class="service-list">
+            <div class="service-card">
+                <div class="service-icon"><i data-lucide="sparkles" size="22"></i></div>
+                <div class="service-content">
+                    <h3>Konsultasi Jenis Kulit Peribadi</h3>
+                    <p>Cadangan set skincare khusus untuk masalah kulit kusam, jerawat, bintik hitam, atau skin barrier rosak.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i data-lucide="gift" size="22"></i></div>
+                <div class="service-content">
+                    <h3>Set Hadiah & Kotak Kecantikan</h3>
+                    <p>Kurasi set hadiah eksklusif untuk hari lahir, hantaran, atau penghargaan korporat dengan pembungkusan kemas.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i data-lucide="megaphone" size="22"></i></div>
+                <div class="service-content">
+                    <h3>Pemasaran & Kolaborasi Kempen</h3>
+                    <p>Terbuka untuk kerjasama promosi produk kecantikan, ulasan TikTok, dan tempahan borong/ejen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SOCIAL PROOF & TESTIMONIAL PELANGGAN
+         ====================================================================== -->
+    <section class="section reveal">
+        <div class="section-header">
+            <span class="section-tag">Maklum Balas Pelanggan</span>
+            <h2 class="section-title">Apa Kata Mereka?</h2>
+        </div>
+
+        <div class="testimonial-track">
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                </div>
+                <p class="review-text">
+                    "Sangat puas hati beli dengan Ayda Shop! Syorkan Glad2Glow Blueberry Ceramide untuk kulit saya yang merah-merah, dalam seminggu dah nampak tenang."
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">NR</div>
+                    <div class="reviewer-meta">
+                        <strong>Nurul Syafiqah</strong>
+                        <span>Pelanggan Tetap • Skincare Routine</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                </div>
+                <p class="review-text">
+                    "Layanan pantas dan sangat mesra. Barang sampai dalam keadaan elok, original 100%, siap dapat tip cara layer serum The Ordinary dengan betul."
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">AI</div>
+                    <div class="reviewer-meta">
+                        <strong>Aina Mardhiah</strong>
+                        <span>Verified Buyer • Kuala Lumpur</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                    <i data-lucide="star" size="15" fill="#F59E0B"></i>
+                </div>
+                <p class="review-text">
+                    "M.A.C Plumping Gloss Stick memang cantik sangat! Terima kasih Ayda Shop bantu pilihkan shade yang sesuai dengan tona kulit saya."
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">FH</div>
+                    <div class="reviewer-meta">
+                        <strong>Farah Hanim</strong>
+                        <span>Makeup Enthusiast • Seremban</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TikTok Social Proof Banner -->
+        <div class="social-banner">
+            <div class="social-banner-text">
+                <strong>Find Me on TikTok • @aydashop</strong>
+                <span>Tonton review jujur, tutorial skincare & promosi live!</span>
+            </div>
+            <a href="https://wa.me/601174717796?text=Hai%20Ayda%20Shop!%20Saya%20jumpa%20kad%20digital%20anda%20dan%20nak%20tanya%20tentang%20produk." target="_blank" rel="noopener" class="btn-secondary" style="padding: 8px 14px; font-size: 0.78rem;">
+                Follow & Chat
+            </a>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SOALAN LAZIM (FAQ ACCORDION)
+         ====================================================================== -->
+    <section class="section reveal">
+        <div class="section-header">
+            <span class="section-tag">Informasi Pantas</span>
+            <h2 class="section-title">Soalan Lazim (FAQ)</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Adakah semua produk di Ayda Shop 100% original?</span>
+                    <i data-lucide="chevron-down" size="18"></i>
+                </button>
+                <div class="faq-answer">
+                    Ya, 100% tulen. Setiap produk diperoleh terus daripada pengedar sah dan jenama rasmi bagi menjamin keselamatan serta keberkesanan pada kulit anda.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Boleh dapatkan cadangan produk ikut bajet & jenis kulit?</span>
+                    <i data-lucide="chevron-down" size="18"></i>
+                </button>
+                <div class="faq-answer">
+                    Sudah tentu! Anda boleh WhatsApp terus dan kongsikan masalah kulit atau bajet anda. Saya akan bantu susunkan rutin paling sesuai secara percuma.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Berapa lama tempoh penghantaran pesanan?</span>
+                    <i data-lucide="chevron-down" size="18"></i>
+                </button>
+                <div class="faq-answer">
+                    Pesanan diproses dalam masa 24 jam hari bekerja. Penghantaran ke Semenanjung biasanya mengambil masa 1–3 hari bekerja, manakala Sabah & Sarawak 3–5 hari bekerja.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         CTA AKHIR & LEAD GENERATION FORM (HUBUNGI FITRI / AYDA SHOP)
+         ====================================================================== -->
+    <section class="section reveal" id="hubungi-fitri">
+        <div class="final-cta-card">
+            <span class="section-tag" style="color: var(--brand-gold-light);">Mulakan Transformasi Anda</span>
+            <h2>Hubungi Fitri & Ayda Shop</h2>
+            <p>Ingin membuat tempahan, konsultasi skincare, atau pertanyaan kerjasama? Hantar mesej terus ke WhatsApp dalam satu klik.</p>
+
+            <form class="lead-form" id="directLeadForm">
+                <input type="text" id="leadName" class="lead-input" placeholder="Nama Anda (Contoh: Siti Aminah)" required>
+                <select id="leadTopic" class="lead-select">
+                    <option value="Konsultasi Skincare & Cadangan Produk">Konsultasi Skincare & Cadangan Produk</option>
+                    <option value="Tempahan Produk Glad2Glow / The Ordinary / M.A.C">Tempahan Produk Utama</option>
+                    <option value="Set Hadiah Kecantikan">Tempahan Set Hadiah Kecantikan</option>
+                    <option value="Kerjasama Pemasaran / Pertanyaan Umum">Kerjasama Pemasaran / Pertanyaan Umum</option>
+                </select>
+                <button type="submit" class="btn-gold">
+                    <i data-lucide="send" size="18"></i>
+                    <span>Hantar ke WhatsApp Sekarang</span>
+                </button>
+            </form>
+
+            <!-- Direct Copy Contact Credentials -->
+            <div class="contact-copy-box">
+                <div class="copy-row">
+                    <span>📞 011-7471 7796</span>
+                    <button type="button" class="copy-trigger" onclick="copyText('01174717796', 'Nombor telefon disalin!')">Salin</button>
+                </div>
+                <div class="copy-row">
+                    <span>✉️ aydajannah19@gmail.com</span>
+                    <button type="button" class="copy-trigger" onclick="copyText('aydajannah19@gmail.com', 'Alamat e-mel disalin!')">Salin</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         STICKY BOTTOM CTA BAR
+         ====================================================================== -->
+    <div class="sticky-bar">
+        <button class="sticky-save" id="stickySaveBtn" title="Simpan ke Kenalan">
+            <i data-lucide="download" size="18"></i>
+            <span>vCard</span>
+        </button>
+        <a href="https://wa.me/601174717796?text=Hai%20Ayda%20Shop%20/%20Fitri!%20Saya%20ingin%20bertanya%20mengenai%20produk%20kecantikan." target="_blank" rel="noopener" class="sticky-wa">
+            <i data-lucide="message-circle" size="19"></i>
+            <span>WhatsApp (011-7471 7796)</span>
+        </a>
+    </div>
+</div>
+
+<!-- ==========================================================================
+     PRODUCT DETAIL POPUP MODAL
+     ========================================================================== -->
+<div class="modal-backdrop" id="productModal">
+    <div class="modal-sheet">
+        <div class="modal-header">
+            <img id="modalImg" src="" alt="Product Image">
+            <button class="modal-close" id="closeProductModal" aria-label="Tutup">
+                <i data-lucide="x" size="20"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <span class="modal-tag" id="modalBrand">BRAND</span>
+            <h3 class="modal-title" id="modalTitle">Nama Produk</h3>
+            <p class="modal-desc" id="modalDesc">Penerangan lengkap produk.</p>
+            <ul class="modal-benefits" id="modalBenefits"></ul>
+            <a href="#" id="modalWaLink" target="_blank" rel="noopener" class="btn-primary">
+                <i data-lucide="shopping-bag" size="18"></i>
+                <span>Tanya & Tempah via WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================================================
+     QR CODE SHARE MODAL (FOR INSTANT SCANNING)
+     ========================================================================== -->
+<div class="modal-backdrop" id="qrModal">
+    <div class="modal-sheet" style="max-width: 360px; text-align: center; padding: 24px;">
+        <div style="display: flex; justify-content: flex-end;">
+            <button class="icon-btn" id="closeQrModal" aria-label="Tutup QR">
+                <i data-lucide="x" size="18"></i>
+            </button>
+        </div>
+        <span class="section-tag">Imbas Untuk Kongsi</span>
+        <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Kod QR Ayda Shop</h3>
+        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 18px;">
+            Imbas kamera telefon anda untuk membuka kad bisnes digital ini serta-merta.
+        </p>
+        <div style="background: #FFF; padding: 16px; border-radius: 18px; border: 1px solid var(--border-color); display: inline-block; margin-bottom: 18px;">
+            <!-- Crisp SVG QR Code generated for Ayda Shop vCard / Link -->
+            <svg width="170" height="170" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="100" rx="8" fill="#FFFFFF"/>
+                <path fill="#1B5459" d="M10 10h24v24H10V10zm4 4v16h16V14H14zm4 4h8v8h-8v-8zm48-8h24v24H66V10zm4 4v16h16V14H70zm4 4h8v8h-8v-8zM10 66h24v24H10V66zm4 4v16h16V70H14zm4 4h8v8h-8v-8z"/>
+                <path fill="#161413" d="M40 12h6v6h-6v-6zm12 0h6v12h-6V12zm-12 12h6v6h-6v-6zm6 6h6v6h-6v-6zm12 6h6v6h-6v-6zM12 40h12v6H12v-6zm18 0h6v12h-6V40zm12 6h12v6H42v-6zm18-6h6v12h-6V40zm12 0h16v6H72v-6zm6 12h10v6H78v-6zM40 58h6v12h-6V58zm12 6h12v6H52v-6zm18 0h6v18h-6V64zm12 6h6v12h-6V70zM40 76h12v6H40v-6zm18 8h12v6H58v-6zm-18 6h6v4h-6v-4z"/>
+                <circle cx="50" cy="50" r="8" fill="#C69B53"/>
+            </svg>
+        </div>
+        <button class="btn-primary" style="width: 100%;" onclick="copyText(window.location.href, 'Pautan kad digital disalin!')">
+            <i data-lucide="link" size="17"></i>
+            <span>Salin Pautan Kad</span>
+        </button>
+    </div>
+</div>
+
+<!-- Toast Feedback -->
+<div class="toast" id="toastBox">
+    <i data-lucide="check-circle-2" size="16" style="color: #10B981;"></i>
+    <span id="toastMsg">Berjaya disalin!</span>
+</div>
+
+<script>
+    // Initialize Lucide Vector Icons
+    lucide.createIcons();
+
+    /* ==========================================================================
+       1. PRODUCT CATALOG DATA (USING ALL UPLOADED PRODUCT IMAGES)
+       ========================================================================== */
+    const products = [
+        {
+            id: 0,
+            brand: "Glad2Glow",
+            name: "Blueberry 5% Ceramide Moisturizer",
+            category: "moisturizer",
+            badge: "Best Seller",
+            img: "657.jpg",
+            desc: "Pelembap bertekstur ringan dengan ekstrak Blueberry dan 5% Ceramide untuk menenangkan kemerahan, merawat jerawat, dan menguatkan skin barrier.",
+            benefits: [
+                "Melegakan kemerahan & iritasi kulit sensitif",
+                "Mengunci kelembapan sehingga 24 jam",
+                "Tekstur gel-krim lembut tanpa rasa melekit"
+            ]
+        },
+        {
+            id: 1,
+            brand: "Glad2Glow",
+            name: "Centella Allantoin Soothing Gel",
+            category: "moisturizer",
+            badge: "Calming Care",
+            img: "658.jpg",
+            desc: "Gel pelembap menyegarkan yang diperkaya dengan Centella Asiatica dan Allantoin untuk menyejukkan kulit kemerahan serta mengawal minyak berlebihan.",
+            benefits: [
+                "Kesan dingin segera untuk kulit stres & berjerawat",
+                "Sesuai untuk kulit berminyak dan kombinasi",
+                "Membantu memudarkan bekas kemerahan"
+            ]
+        },
+        {
+            id: 2,
+            brand: "Glad2Glow",
+            name: "Pomegranate Niacinamide Brightening",
+            category: "moisturizer",
+            badge: "Glow Boost",
+            img: "659.jpg",
+            desc: "Pelembap pencerah dengan kombinasi ekstrak Delima (Pomegranate) dan Niacinamide untuk menyekatakan tona kulit kusam agar tampil berseri.",
+            benefits: [
+                "Mencerahkan kulit kusam secara semula jadi",
+                "Menyekatakan tona kulit tidak sekata",
+                "Menjadikan kulit terasa anjal dan halus"
+            ]
+        },
+        {
+            id: 3,
+            brand: "Glad2Glow",
+            name: "Yuja 377 Dark Spot Moisturizer",
+            category: "moisturizer",
+            badge: "Dark Spot",
+            img: "663.jpg",
+            desc: "Formulasi khas dengan ekstrak Yuja dan SymWhite 377 yang menyasarkan bintik hitam serta parut jerawat untuk kulit yang lebih jernih.",
+            benefits: [
+                "Memudarkan parut jerawat & bintik hitam degil",
+                "Memberi hidrasi mendalam dengan aroma sitrus segar",
+                "Membantu kulit tampak lebih cerah bermaya"
+            ]
+        },
+        {
+            id: 4,
+            brand: "Glad2Glow",
+            name: "Daily Moisturizing Sunscreen SPF 50",
+            category: "sunscreen",
+            badge: "UV Shield",
+            img: "660.jpg",
+            desc: "Pelindung matahari harian SPF 50 PA+++ yang melindungi kulit daripada sinaran UVA/UVB sambil mengekalkan kelembapan tanpa whitecast.",
+            benefits: [
+                "Perlindungan spektrum luas SPF 50 PA+++",
+                "Sangat ringan & mudah meresap di bawah mekap",
+                "Tidak menyumbat pori-pori"
+            ]
+        },
+        {
+            id: 5,
+            brand: "Mary Kay",
+            name: "Sheer UV Defense Milk SPF 50+",
+            category: "sunscreen",
+            badge: "Premium UV",
+            img: "661.jpg",
+            desc: "Susu pelindung UV berprestasi tinggi SPF 50+/PA+++ dengan kemasan halus bak sutera untuk perlindungan maksimum daripada penuaan pramatang.",
+            benefits: [
+                "Tekstur susu ultra-ringan & tidak berminyak",
+                "Perlindungan tinggi SPF 50+ untuk cuaca tropika",
+                "Memberi kemasan kulit licin berseri"
+            ]
+        },
+        {
+            id: 6,
+            brand: "M.A.C Cosmetics",
+            name: "Squirt Plumping Gloss Stick",
+            category: "cleanser",
+            badge: "Trending",
+            img: "664.jpg",
+            desc: "Gincu gloss berkhasiat yang mencair di bibir dengan kilauan kaca menawan, memberi kesan bibir lebih mungil, lembut dan terhidrat.",
+            benefits: [
+                "Pilihan rona ikonik sesuai semua tona kulit",
+                "Diperkaya minyak botani untuk bibir lembut",
+                "Kilauan segar tanpa rasa melekit"
+            ]
+        },
+        {
+            id: 7,
+            brand: "The Ordinary",
+            name: "The Age Support Set (Regimen)",
+            category: "sunscreen",
+            badge: "Clinical Set",
+            img: "665.jpg",
+            desc: "Set penjagaan anti-penuaan lengkap merangkumi Multi-Peptide + HA Serum, Multi-Peptide Eye Serum, dan Natural Moisturizing Factors.",
+            benefits: [
+                "Mengurangkan garis halus & meningkatkan keanjalan",
+                "Penjagaan lengkap wajah dan kawasan mata",
+                "Formulasi klinikal berintegriti tinggi"
+            ]
+        },
+        {
+            id: 8,
+            brand: "Glad2Glow",
+            name: "Milk Amino Acids Brightening Cleanser",
+            category: "cleanser",
+            badge: "Daily Wash",
+            img: "662.jpg",
+            desc: "Pencuci muka lembut dengan asid amino susu yang membersihkan kotoran secara mendalam tanpa mengeringkan lembapan semula jadi kulit.",
+            benefits: [
+                "Buih halus yang lembut pada skin barrier",
+                "Membersih & mencerahkan tanpa rasa tegang",
+                "Sesuai digunakan setiap pagi dan malam"
+            ]
+        }
+    ];
+
+    /* ==========================================================================
+       2. RENDER PRODUCT GRID & CATEGORY FILTERING
+       ========================================================================== */
+    const productGrid = document.getElementById('productGrid');
+    const categoryTabs = document.getElementById('categoryTabs');
+
+    function renderProducts(filter = 'all') {
+        productGrid.innerHTML = '';
+        const filtered = filter === 'all'
+            ? products
+            : products.filter(p => p.category === filter);
+
+        filtered.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.onclick = () => openProductModal(item.id);
+            card.innerHTML = `
+                <div class="product-img-wrap">
+                    <span class="product-badge">${item.badge}</span>
+                    <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/300x400/FAF7F5/1B5459?text=${encodeURIComponent(item.brand)}'">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <span class="product-brand">${item.brand}</span>
+                        <h3 class="product-name">${item.name}</h3>
+                    </div>
+                    <div class="product-action">
+                        <span>Info & Tempah</span>
+                        <i data-lucide="arrow-up-right" size="15"></i>
+                    </div>
+                </div>
+            `;
+            productGrid.appendChild(card);
+        });
+        lucide.createIcons();
+    }
+
+    categoryTabs.addEventListener('click', (e) => {
+        if (e.target.classList.contains('tab-btn')) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+            renderProducts(e.target.dataset.filter);
+        }
+    });
+
+    // Initial render
+    renderProducts('all');
+
+    /* ==========================================================================
+       3. PRODUCT MODAL INTERACTION
+       ========================================================================== */
+    const productModal = document.getElementById('productModal');
+    const closeProductModal = document.getElementById('closeProductModal');
+
+    function openProductModal(id) {
+        const product = products.find(p => p.id === id);
+        if (!product) return;
+
+        document.getElementById('modalImg').src = product.img;
+        document.getElementById('modalBrand').textContent = product.brand;
+        document.getElementById('modalTitle').textContent = product.name;
+        document.getElementById('modalDesc').textContent = product.desc;
+
+        const benefitsList = document.getElementById('modalBenefits');
+        benefitsList.innerHTML = product.benefits.map(b => `
+            <li><i data-lucide="check-circle-2"></i><span>${b}</span></li>
+        `).join('');
+
+        const waMsg = encodeURIComponent(`Hai Ayda Shop! Saya berminat dengan produk *${product.brand} - ${product.name}*. Boleh kongsikan harga & stok terkini?`);
+        document.getElementById('modalWaLink').href = `https://wa.me/601174717796?text=${waMsg}`;
+
+        productModal.classList.add('show');
+        lucide.createIcons();
+    }
+
+    closeProductModal.addEventListener('click', () => productModal.classList.remove('show'));
+    productModal.addEventListener('click', (e) => {
+        if (e.target === productModal) productModal.classList.remove('show');
+    });
+
+    /* ==========================================================================
+       4. SAVE CONTACT / VCARD (.VCF) GENERATOR
+       ========================================================================== */
+    function downloadVCard() {
+        const vcardData = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            "N:Shop;Ayda;;;",
+            "FN:Ayda Shop (Fitri) - Marketing Executive",
+            "ORG:Ayda Shop Beauty & Cosmetics",
+            "TITLE:Marketing Executive",
+            "TEL;TYPE=CELL,VOICE:+601174717796",
+            "EMAIL;TYPE=PREF,INTERNET:aydajannah19@gmail.com",
+            "NOTE:Beauty & Cosmetics Specialist | Skincare Consultation & Marketing",
+            "END:VCARD"
+        ].join("\n");
+
+        const blob = new Blob([vcardData], { type: "text/vcard;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "Ayda_Shop_Marketing_Executive.vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        showToast("Fail kenalan (.vcf) dimuat turun!");
+    }
+
+    document.getElementById('saveVcardBtn').addEventListener('click', downloadVCard);
+    document.getElementById('stickySaveBtn').addEventListener('click', downloadVCard);
+
+    /* ==========================================================================
+       5. SHARE BUSINESS CARD & QR MODAL
+       ========================================================================== */
+    const qrModal = document.getElementById('qrModal');
+    document.getElementById('openQrBtn').addEventListener('click', () => qrModal.classList.add('show'));
+    document.getElementById('closeQrModal').addEventListener('click', () => qrModal.classList.remove('show'));
+    qrModal.addEventListener('click', (e) => {
+        if (e.target === qrModal) qrModal.classList.remove('show');
+    });
+
+    document.getElementById('shareCardBtn').addEventListener('click', async () => {
+        const shareData = {
+            title: 'Ayda Shop | Marketing Executive',
+            text: 'Terokai koleksi produk kecantikan tulen & konsultasi kulit bersama Ayda Shop.',
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                // User cancelled share
+            }
+        } else {
+            copyText(window.location.href, 'Pautan kad digital disalin!');
+        }
+    });
+
+    /* ==========================================================================
+       6. CLIPBOARD COPY & TOAST NOTIFICATION
+       ========================================================================== */
+    function copyText(text, message) {
+        const tempInput = document.createElement("textarea");
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        showToast(message);
+    }
+
+    let toastTimer;
+    function showToast(msg) {
+        const toast = document.getElementById('toastBox');
+        document.getElementById('toastMsg').textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    /* ==========================================================================
+       7. FAQ ACCORDION & DIRECT LEAD WHATSAPP FORM
+       ========================================================================== */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            item.classList.toggle('open');
+        });
+    });
+
+    document.getElementById('directLeadForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('leadName').value.trim();
+        const topic = document.getElementById('leadTopic').value;
+        const message = encodeURIComponent(
+            `Hai Fitri / Ayda Shop! 👋\n\nNama saya *${name}*.\nSaya ingin berhubung mengenai: *${topic}*.\n\nMohon bantuan & info lanjut ya!`
+        );
+        window.open(`https://wa.me/601174717796?text=${message}`, '_blank');
+    });
+
+    /* ==========================================================================
+       8. SCROLL PROGRESS BAR, REVEAL ANIMATIONS & ANIMATED COUNTERS
+       ========================================================================== */
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+        scrollProgress.style.width = scrolled + "%";
+    });
+
+    // Intersection Observer for Smooth Scroll Reveals & Number Counters
+    let statsAnimated = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+
+                // Trigger number animation when stats section enters view
+                if (entry.target.querySelector('.stats-grid') && !statsAnimated) {
+                    statsAnimated = true;
+                    animateCounters();
+                }
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function animateCounters() {
+        document.querySelectorAll('.stat-number').forEach(counter => {
+            const target = parseFloat(counter.dataset.target);
+            const suffix = counter.dataset.suffix || '';
+            const isDecimal = counter.dataset.decimal === 'true';
+            const duration = 1400;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out quart
+                const ease = 1 - Math.pow(1 - progress, 4);
+                const currentVal = target * ease;
+
+                counter.textContent = (isDecimal ? currentVal.toFixed(1) : Math.floor(currentVal)) + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    counter.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+                }
+            }
+            requestAnimationFrame(update);
+        });
+    }
+</script>
+</body>
+</html>
